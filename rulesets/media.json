@@ -1,0 +1,20 @@
+{
+    "version": 3,
+    "rules": [
+        {
+            "domain_suffix": [
+                "instagram.com",
+                "googlevideo.com",
+                "ggpht.com",
+                "youtube.com",
+                "play.google.com",
+                "ytimg.com",
+                "cdninstagram.com",
+                "fbsbx.com",
+                "amazon-adsystem.com",
+                "rutracker.org",
+                "googlesyndication.com"
+            ]
+        }
+    ]
+}

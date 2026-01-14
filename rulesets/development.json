@@ -1,0 +1,22 @@
+{
+    "version": 3,
+    "rules": [
+        {
+            "domain_suffix": [
+                "habr.com",
+                "openwrt.org",
+                "pfsense.org",
+                "cloudflare-ech.com",
+                "cloudflare.com",
+                "sagernet.org",
+                "opentext.com",
+                "dellcdn.com",
+                "docker.com",
+                "docker.io",
+                "ntc.party",
+                "ipinfo.io",
+                "4pda.to"
+            ]
+        }
+    ]
+}
