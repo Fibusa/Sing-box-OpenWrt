@@ -6,12 +6,12 @@
     "dns": {
         "servers": [
             {
-                "tag": "cloudflare-direct",
-                "address": "8.8.8.8",
-                "address_strategy": "prefer_ipv4",
-                "detour": "direct-out"
+                "type": "udp",
+                "tag": "google-dns-udp",
+                "server": "8.8.8.8"
             }
-        ]
+        ],
+        "strategy": "ipv4_only"
     },
     "inbounds": [
         {
