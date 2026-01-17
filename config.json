@@ -59,18 +59,31 @@
     "route": {
         "rules": [
             {
+                "action": "sniff"
+            },
+            {
+                "protocol": "dns",
+                "action": "hijack-dns"
+            },
+            {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
                     {
                         "rule_set": [
                             "media",
-                            "discord"
+                            "discord",
+                            "development",
+                            "telegram"
                         ]
                     }
                 ],
                 "action": "route",
                 "outbound": "vless-out"
+            },
+            {
+                "inbound": "tun-in",
+                "outbound": "direct-out"
             }
         ],
         "rule_set": [
@@ -89,8 +102,25 @@
                 "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/media.json",
                 "download_detour": "direct-out",
                 "update_interval": "10m"
+            },
+            {
+                "type": "remote",
+                "tag": "development",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/development.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
+            },
+            {
+                "type": "remote",
+                "tag": "telegram",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/telegram.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
             }
         ],
+        "default_domain_resolver": "google-dns-udp",
         "auto_detect_interface": true,
         "final": "direct-out"
     }
