@@ -59,7 +59,36 @@
     "route": {
         "rules": [
             {
-
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "rule_set": [
+                            "media",
+                            "discord"
+                        ]
+                    }
+                ],
+                "action": "route",
+                "outbound": "vless-out"
+            }
+        ],
+        "rule_set": [
+            {
+                "type": "remote",
+                "tag": "discord",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/discord.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
+            },
+            {
+                "type": "remote",
+                "tag": "media",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/media.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
             }
         ],
         "auto_detect_interface": true,
