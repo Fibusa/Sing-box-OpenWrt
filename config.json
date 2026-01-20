@@ -58,6 +58,18 @@
                 "action": "sniff"
             },
             {
+                "action": "reject",
+                "method": "default",
+                "no_drop": false,
+                "rules": [
+                    {
+                        "rule_set": [
+                            "block"
+                        ]
+                    }
+                ]
+            },
+            {
                 "protocol": "dns",
                 "action": "hijack-dns"
             },
@@ -112,6 +124,14 @@
                 "tag": "telegram",
                 "format": "source",
                 "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/telegram.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
+            },
+            {
+                "type": "remote",
+                "tag": "block",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/block.json",
                 "download_detour": "direct-out",
                 "update_interval": "10m"
             }
