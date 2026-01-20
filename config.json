@@ -58,9 +58,10 @@
                 "action": "sniff"
             },
             {
+                "type": "logical",
+                "mode": "or",
                 "action": "reject",
                 "method": "default",
-                "no_drop": false,
                 "rules": [
                     {
                         "rule_set": [
