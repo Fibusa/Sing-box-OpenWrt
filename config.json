@@ -58,6 +58,10 @@
                 "action": "sniff"
             },
             {
+                "protocol": "dns",
+                "action": "hijack-dns"
+            },
+            {
                 "type": "logical",
                 "mode": "or",
                 "action": "reject",
@@ -69,10 +73,6 @@
                         ]
                     }
                 ]
-            },
-            {
-                "protocol": "dns",
-                "action": "hijack-dns"
             },
             {
                 "type": "logical",
