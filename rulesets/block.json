@@ -3,7 +3,8 @@
     "rules": [
         {
             "domain_suffix": [
-                "example.com"
+                "example.com",
+                "ws-api.oneme.ru"
             ]
         }
     ]
