@@ -3,7 +3,11 @@
     "rules": [
         {
             "domain_suffix": [
-                "example.com"
+                "example.com",
+                "connectivitycheck.gstatic.com",
+                "www.gstatic.com",
+                "www.googleapis.com",
+                "www.google.com"
             ]
         }
     ]
