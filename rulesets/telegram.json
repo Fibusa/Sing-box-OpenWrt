@@ -2,6 +2,10 @@
     "version": 3,
     "rules": [
         {
+            "ip_cidr": [
+                "149.154.164.0/22",
+                "108.157.224.0/21"
+            ],
             "domain_suffix": [
                 "t.me",
                 "tg.dev",
