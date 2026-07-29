@@ -1,8 +1,14 @@
 {
     "version": 3,
     "rules": [
-        {
-            "domain_suffix": [ 
+        {   
+            "ip_cidr": [
+
+            ],
+            "domain_suffix": [
+                "aaplimg.com",
+                "mzstatic.com",
+                "cdn-apple.com" 
             ]
         }
     ]
