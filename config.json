@@ -27,7 +27,7 @@
     "outbounds": [
         {
             "type": "vless",
-            "tag": "vless-out",
+            "tag": "out1",
             "server": "",
             "server_port": 443,
             "uuid": "",
@@ -46,6 +46,39 @@
                     "short_id": ""
                 }
             }
+        },
+        {
+            "type": "vless",
+            "tag": "out2",
+            "server": "",
+            "server_port": 443,
+            "uuid": "",
+            "flow": "xtls-rprx-vision",
+            "tls": {
+                "enabled": true,
+                "insecure": false,
+                "server_name": "",
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                },
+                "reality": {
+                    "enabled": true,
+                    "public_key": "",
+                    "short_id": ""
+                }
+            }
+        },
+        {
+            "type": "urltest",
+            "tag": "balancer",
+            "outbounds": [
+                "out1",
+                "out2"
+            ],
+            "interval": "1m",
+            "idle_timeout": "10m",
+            "interrupt_exist_connections": false
         },
         {
             "type": "direct",
