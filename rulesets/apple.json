@@ -3,7 +3,7 @@
     "rules": [
         {   
             "ip_cidr": [
-
+                "62.115.0.0/16"
             ],
             "domain_suffix": [
                 "aaplimg.com",
