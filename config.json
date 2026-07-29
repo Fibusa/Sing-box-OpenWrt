@@ -116,7 +116,8 @@
                             "media",
                             "discord",
                             "development",
-                            "telegram"
+                            "telegram",
+                            "apple"
                         ]
                     }
                 ],
@@ -166,6 +167,14 @@
                 "tag": "block",
                 "format": "source",
                 "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/block.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
+            },
+            {
+                "type": "remote",
+                "tag": "apple",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/apple.json",
                 "download_detour": "direct-out",
                 "update_interval": "10m"
             }
