@@ -1,0 +1,156 @@
+{
+    "log": {
+        "disabled": false,
+        "level": "info"
+    },
+    "dns": {
+        "servers": [
+            {
+                "type": "udp",
+                "tag": "google-dns-udp",
+                "server": "8.8.8.8"
+            }
+        ],
+        "strategy": "ipv4_only"
+    },
+    "inbounds": [
+        {
+            "tag": "all-in",
+            "type": "tun",
+            "interface_name": "tun0",
+            "address": "172.16.0.1/30",
+            "mtu": 9000,
+            "stack": "mixed",
+            "auto_route": true,
+            "auto_redirect": true
+        }
+    ],
+    "outbounds": [
+        {
+            "type": "vless",
+            "tag": "vless-out",
+            "server": "",
+            "server_port": 443,
+            "uuid": "",
+            "flow": "",
+            "tls": {
+                "enabled": true,
+                "insecure": false,
+                "server_name": "",
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "firefox"
+                }
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/test-ws/",
+                 "headers": {
+                    "Host": ""
+                }
+            }
+        },
+        {
+            "type": "direct",
+            "tag": "direct-out"
+        }
+    ],
+    "route": {
+        "rules": [
+            {
+                "action": "sniff"
+            },
+            {
+                "protocol": "dns",
+                "action": "hijack-dns"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "action": "reject",
+                "method": "default",
+                "rules": [
+                    {
+                        "rule_set": [
+                            "block"
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "rule_set": [
+                            "media",
+                            "discord",
+                            "development",
+                            "telegram",
+                            "apple"
+                        ]
+                    }
+                ],
+                "action": "route",
+                "outbound": "vless-out"
+            },
+            {
+                "inbound": "tun-in",
+                "outbound": "direct-out"
+            }
+        ],
+        "rule_set": [
+            {
+                "type": "remote",
+                "tag": "discord",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/discord.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
+            },
+            {
+                "type": "remote",
+                "tag": "media",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/media.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
+            },
+            {
+                "type": "remote",
+                "tag": "development",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/development.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
+            },
+            {
+                "type": "remote",
+                "tag": "telegram",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/telegram.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
+            },
+            {
+                "type": "remote",
+                "tag": "block",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/block.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
+            },
+            {
+                "type": "remote",
+                "tag": "apple",
+                "format": "source",
+                "url": "https://raw.githubusercontent.com/Fibusa/Sing-box-OpenWrt/refs/heads/main/rulesets/apple.json",
+                "download_detour": "direct-out",
+                "update_interval": "10m"
+            }
+        ],
+        "default_domain_resolver": "google-dns-udp",
+        "auto_detect_interface": true,
+        "final": "direct-out"
+    }
+}
