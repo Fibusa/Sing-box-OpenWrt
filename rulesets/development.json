@@ -39,7 +39,8 @@
                 "kali.org",
                 "huggingface.co",
                 "duckdns.org",
-                "akamaitechnologies.com"
+                "akamaitechnologies.com",
+                "cloudfront.net"
             ]
         }
     ]
