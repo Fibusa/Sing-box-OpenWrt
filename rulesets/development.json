@@ -2,15 +2,6 @@
     "version": 3,
     "rules": [
         {
-            "ip_cidr": [
-                "3.164.224.0/21",
-                "8.47.69.0/24",
-                "65.9.62.0/23",
-                "143.204.238.0/24",
-                "23.47.124.0/24",
-                "2.16.56.0/24",
-                "23.53.32.0/24"
-            ],
             "domain_suffix": [
                 "habr.com",
                 "openwrt.org",
@@ -47,9 +38,7 @@
                 "aircrack-ng.org",
                 "kali.org",
                 "huggingface.co",
-                "duckdns.org",
-                "akamaitechnologies.com",
-                "cloudfront.net"
+                "duckdns.org"
             ]
         }
     ]
