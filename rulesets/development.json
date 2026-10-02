@@ -39,7 +39,8 @@
                 "kali.org",
                 "huggingface.co",
                 "duckdns.org",
-                "clerk.com"
+                "clerk.com",
+                "stripecdn.com"
             ]
         }
     ]
