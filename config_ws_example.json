@@ -4,14 +4,40 @@
         "level": "info"
     },
     "dns": {
+        "strategy": "ipv4_only",
+        "reverse_mapping": true,
         "servers": [
             {
-                "type": "udp",
-                "tag": "google-dns-udp",
-                "server": "8.8.8.8"
+                "type": "https",
+                "tag": "dns-secure",
+                "server": "8.8.8.8",
+                "tls": {
+                    "server_name": "dns.google"
+                },
+                "detour": "proxy-select"
+            },
+            {
+                "type": "https",
+                "tag": "dns-direct",
+                "server": "77.88.8.88",
+                "tls": {
+                    "server_name": "safe.dot.dns.yandex.net"
+                }
             }
         ],
-        "strategy": "ipv4_only"
+        "rules": [
+            {
+                "rule_set": [
+                    "media",
+                    "discord",
+                    "development",
+                    "telegram",
+                    "apple"
+                ],
+                "server": "dns-secure"
+            }
+        ],
+        "final": "dns-direct"
     },
     "inbounds": [
         {
@@ -57,8 +83,8 @@
                 "action": "sniff"
             },
             {
-                "protocol": "dns",
-                "action": "hijack-dns"
+                "action": "resolve",
+                "server": "google-dns-udp"
             },
             {
                 "type": "logical",
