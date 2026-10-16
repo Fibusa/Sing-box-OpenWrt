@@ -40,7 +40,8 @@
                 "huggingface.co",
                 "duckdns.org",
                 "clerk.com",
-                "stripecdn.com"
+                "stripecdn.com",
+                "owasp.org"
             ]
         }
     ]
