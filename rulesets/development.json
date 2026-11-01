@@ -41,7 +41,9 @@
                 "duckdns.org",
                 "clerk.com",
                 "stripecdn.com",
-                "owasp.org"
+                "owasp.org",
+                "visualstudio.com",
+                "vsassets.io"
             ]
         }
     ]
