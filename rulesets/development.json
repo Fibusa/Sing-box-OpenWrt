@@ -43,7 +43,8 @@
                 "stripecdn.com",
                 "owasp.org",
                 "visualstudio.com",
-                "vsassets.io"
+                "vsassets.io",
+                "pypi.org"
             ]
         }
     ]
